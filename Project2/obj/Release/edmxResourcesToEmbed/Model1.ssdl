@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="P2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="CateName" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="Desc" Type="nvarchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Detail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Album" Type="nvarchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'P2.dbo.FileUpload' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="FileUpload">
+    <Key>
+      <PropertyRef Name="FileName" />
+      <PropertyRef Name="Url" />
+      <PropertyRef Name="Type" />
+      <PropertyRef Name="CreateDate" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="ModifiedUser" />
+      <PropertyRef Name="ModifiedDate" />
+    </Key>
+    <Property Name="FileName" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="Url" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
+    <Property Name="CreateUser" Type="date" Nullable="false" />
+    <Property Name="ModifiedUser" Type="date" Nullable="false" />
+    <Property Name="ModifiedDate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Hotel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="Owner" Type="int" Nullable="false" />
+    <Property Name="Desc" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Url" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CratedUser" Type="int" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'P2.dbo.Order' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoomId" />
+      <PropertyRef Name="IsPaid" />
+      <PropertyRef Name="Checkin" />
+      <PropertyRef Name="Checkout" />
+      <PropertyRef Name="Desc" />
+      <PropertyRef Name="CreateDate" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="ModifiedDate" />
+      <PropertyRef Name="ModifiedUser" />
+      <PropertyRef Name="Price" />
+      <PropertyRef Name="Status" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="RoomId" Type="int" Nullable="false" />
+    <Property Name="IsPaid" Type="int" Nullable="false" />
+    <Property Name="Checkin" Type="date" Nullable="false" />
+    <Property Name="Checkout" Type="date" Nullable="false" />
+    <Property Name="Desc" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
+    <Property Name="CreateUser" Type="int" Nullable="false" />
+    <Property Name="ModifiedDate" Type="date" Nullable="false" />
+    <Property Name="ModifiedUser" Type="int" Nullable="false" />
+    <Property Name="Price" Type="int" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'P2.dbo.Rating' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Rating">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="Hotel" />
+      <PropertyRef Name="Star" />
+      <PropertyRef Name="Desc" />
+      <PropertyRef Name="CreateDate" />
+      <PropertyRef Name="CreateUser" />
+      <PropertyRef Name="ModifiedDate" />
+      <PropertyRef Name="ModifiedUser" />
+      <PropertyRef Name="ModifiedNumber" />
+      <PropertyRef Name="Status" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Hotel" Type="int" Nullable="false" />
+    <Property Name="Star" Type="int" Nullable="false" />
+    <Property Name="Desc" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="CreateDate" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="CreateUser" Type="int" Nullable="false" />
+    <Property Name="ModifiedDate" Type="date" Nullable="false" />
+    <Property Name="ModifiedUser" Type="int" Nullable="false" />
+    <Property Name="ModifiedNumber" Type="int" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="Desc" Type="nvarchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="Price" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="RoomStatus" Type="int" Nullable="false" />
+    <Property Name="HotelId" Type="int" Nullable="false" />
+    <Property Name="Checkin" Type="date" Nullable="false" />
+    <Property Name="Checkout" Type="date" Nullable="false" />
+    <Property Name="Desc" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tags">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="TagName" Type="nvarchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
+    <Property Name="ModifiedDate" Type="date" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="P2ModelStoreContainer">
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Detail" EntityType="Self.Detail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hotel" EntityType="Self.Hotel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notification" EntityType="Self.Notification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tags" EntityType="Self.Tags" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FileUpload" EntityType="Self.FileUpload" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FileUpload].[FileName] AS [FileName], 
+    [FileUpload].[Url] AS [Url], 
+    [FileUpload].[Type] AS [Type], 
+    [FileUpload].[CreateDate] AS [CreateDate], 
+    [FileUpload].[CreateUser] AS [CreateUser], 
+    [FileUpload].[ModifiedUser] AS [ModifiedUser], 
+    [FileUpload].[ModifiedDate] AS [ModifiedDate]
+    FROM [dbo].[FileUpload] AS [FileUpload]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Order" EntityType="Self.Order" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Order].[UserId] AS [UserId], 
+    [Order].[RoomId] AS [RoomId], 
+    [Order].[IsPaid] AS [IsPaid], 
+    [Order].[Checkin] AS [Checkin], 
+    [Order].[Checkout] AS [Checkout], 
+    [Order].[Desc] AS [Desc], 
+    [Order].[CreateDate] AS [CreateDate], 
+    [Order].[CreateUser] AS [CreateUser], 
+    [Order].[ModifiedDate] AS [ModifiedDate], 
+    [Order].[ModifiedUser] AS [ModifiedUser], 
+    [Order].[Price] AS [Price], 
+    [Order].[Status] AS [Status]
+    FROM [dbo].[Order] AS [Order]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Rating" EntityType="Self.Rating" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Rating].[UserID] AS [UserID], 
+    [Rating].[Hotel] AS [Hotel], 
+    [Rating].[Star] AS [Star], 
+    [Rating].[Desc] AS [Desc], 
+    [Rating].[CreateDate] AS [CreateDate], 
+    [Rating].[CreateUser] AS [CreateUser], 
+    [Rating].[ModifiedDate] AS [ModifiedDate], 
+    [Rating].[ModifiedUser] AS [ModifiedUser], 
+    [Rating].[ModifiedNumber] AS [ModifiedNumber], 
+    [Rating].[Status] AS [Status]
+    FROM [dbo].[Rating] AS [Rating]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
